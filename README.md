@@ -1,3 +1,5 @@
+<img src="http://f.cl.ly/items/1q202q1t2a1R1v0n2L0Y/test.jpg"/>
+
 SketchGit
 =========
 
