@@ -10,6 +10,6 @@ if (branchName != null){
 
   var terminal = SBApplication.application_("Terminal");
 
-  terminal.doScript_in_("cd " + currentFolder + "; git checkout -b " + branchName + "; exit",nil);
+  terminal.doScript_in_("cd " + currentFolder + "; cd ../; git checkout -b " + branchName + "; exit",nil);
 
 }

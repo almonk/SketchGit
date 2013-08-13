@@ -6,6 +6,6 @@ var currentFolder = com.bomberstudios.getFileFolder()
 
 var terminal = SBApplication.application_("Terminal");
 
-terminal.doScript_in_("cd " + currentFolder,nil);
+terminal.doScript_in_("cd " + currentFolder + "; cd ../;",nil);
 
 terminal.activate();

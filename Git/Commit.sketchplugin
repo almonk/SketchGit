@@ -10,6 +10,6 @@ if (commitMsg != null){
 
   var terminal = SBApplication.application_("Terminal");
 
-  terminal.doScript_in_("cd " + currentFolder + "; sleep 2; git commit -m '" + commitMsg + "' -a"+ "; exit",nil);
+  terminal.doScript_in_("cd " + currentFolder + "; cd ../; sleep 2; git commit -m '" + commitMsg + "' -a"+ "; exit",nil);
 
 }
