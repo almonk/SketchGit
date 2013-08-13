@@ -1,0 +1,15 @@
+// Branch & checkout (cmd alt ctrl b)
+
+#import 'library/common.js'
+
+var currentFolder = com.bomberstudios.getFileFolder()
+
+var branchName = [doc askForUserInput:'Branch name' initialValue:''];
+
+if (branchName != null){
+
+  var terminal = SBApplication.application_("Terminal");
+
+  terminal.doScript_in_("cd " + currentFolder + "; git checkout -b " + branchName + "; exit",nil);
+
+}
