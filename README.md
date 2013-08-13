@@ -23,3 +23,7 @@ SketchGit
 **Branch** – ctrl alt cmd b
 
 **Open terminal in working dir** – ctrl alt cmd t
+
+---
+
+Thanks to <a href="https://github.com/bomberstudios">Bomberstudios</a> for a lot of example code and <a href="http://twitter.com/peterejhamilton">Pete Hamilton</a> for his help.
