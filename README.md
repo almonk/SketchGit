@@ -5,7 +5,7 @@ SketchGit
 
 #### A simple Git client built right into <a href="http://www.bohemiancoding.com/sketch/">Sketch</a>.
 
-**Important: For this plugin to work you must be using the non App Store version of Sketch as it's environment is not sandboxed.**
+**Important: For this plugin to work you must be using the non App Store version of Sketch so that it's environment is not sandboxed.**
 
 ---
 
