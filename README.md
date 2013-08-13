@@ -12,7 +12,7 @@ SketchGit
 ##### Installation
 * Download this repo as a zip
 * Enable scripting within Sketch (in preferences)
-* Place the extracted files/folders into your Sketch plugin directory (<pre>~/library/application support/sketch/plugins</pre>)
+* Place the extracted files/folders into your Sketch plugin directory <pre>~/library/application support/sketch/plugins</pre>
 
 #### Default key bindings
 **Commit** – cmd alt y
