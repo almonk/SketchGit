@@ -15,14 +15,13 @@ SketchGit
 * Place the extracted files/folders into your Sketch plugin directory <pre>~/library/application support/sketch/plugins</pre>
 
 #### Default key bindings
-**Commit** – cmd alt y
-<img src="http://f.cl.ly/items/2f2k1Y3Q0d0m452U1s33/Screen%20Shot%202013-08-13%20at%2015.07.39.png"/>
 
-**Checkout** – ctrl alt cmd c
-
-**Branch** – ctrl alt cmd b
-
-**Open terminal in working dir** – ctrl alt cmd t
+ Action                       | Shortcut
+:-----------------------------|:----------------------------------------------------------------
+ Commit                       | <kbd>cmd</kbd> + <kbd>alt</kbd> + <kbd>y</kbd>
+ Checkout                     | <kbd>ctrl</kbd> + <kbd>alt</kbd> + <kbd>cmd</kbd> + <kbd>c</kbd>
+ Branch                       | <kbd>ctrl</kbd> + <kbd>alt</kbd> + <kbd>cmd</kbd> + <kbd>b</kbd>
+ Open terminal in working dir | <kbd>ctrl</kbd> + <kbd>alt</kbd> + <kbd>cmd</kbd> + <kbd>t</kbd>
 
 ---
 
