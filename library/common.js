@@ -1,6 +1,7 @@
 // Common library of things
 
-var com = com || {};
+var com = com || {},
+    net = net || {};
 
 com.bomberstudios = {
   alert: function(msg,title){
@@ -18,9 +19,6 @@ com.bomberstudios = {
         file_path = [file_url path],
         file_folder = file_path
     return file_folder;
-  },
-  getCurrentDirectory: function() {
-    return [[[doc fileURL] URLByDeletingLastPathComponent] path];
   },
   getExportPath: function(){
     var file_folder = com.bomberstudios.getFileFolder(),
@@ -97,6 +95,41 @@ com.bomberstudios = {
       default:
         return num;
     }
+  }
+};
+
+net.khasegawa = {
+  getCurrentDirectory: function() {
+    return doc.fileURL().URLByDeletingLastPathComponent().path();
+  },
+  executeCommand: function(command) {
+    var task = NSTask.alloc().init(),
+        pipe = NSPipe.alloc().init(),
+        errPipe = NSPipe.alloc().init();
+    task.setLaunchPath_(@"/bin/sh");
+    task.setArguments_(NSArray.arrayWithObjects_("-c", command, nil));
+    task.setStandardOutput_(pipe);
+    task.setStandardError_(errPipe);
+    task.launch();
+
+    var data = errPipe.fileHandleForReading().readDataToEndOfFile();
+    if (data != nil && data.length())
+    {
+      var message = NSString.alloc().initWithData_encoding_(data, NSUTF8StringEncoding);
+      NSApplication.sharedApplication().displayDialog_withTitle_(message, "Failed...");
+      message.release();
+    }
+    else
+    {
+      data = pipe.fileHandleForReading().readDataToEndOfFile();
+      var message = NSString.alloc().initWithData_encoding_(data, NSUTF8StringEncoding);
+      NSApplication.sharedApplication().displayDialog_withTitle_(message, "Successful!");
+      message.release();
+    }
+
+    pipe.release();
+    errPipe.release();
+    task.release();
   }
 };
 
