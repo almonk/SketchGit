@@ -19,6 +19,9 @@ com.bomberstudios = {
         file_folder = file_path
     return file_folder;
   },
+  getCurrentDirectory: function() {
+    return [[[doc fileURL] URLByDeletingLastPathComponent] path];
+  },
   getExportPath: function(){
     var file_folder = com.bomberstudios.getFileFolder(),
         export_folder = file_folder + "/" + ([doc displayName]).split('.sketch')[0] + "_export/";
