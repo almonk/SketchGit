@@ -102,10 +102,10 @@ net.khasegawa = {
   getCurrentDirectory: function() {
     return doc.fileURL().URLByDeletingLastPathComponent().path();
   },
-  executeCommand: function(command) {
+  exec: function(command) {
     var task = NSTask.alloc().init(),
-        pipe = NSPipe.alloc().init(),
-        errPipe = NSPipe.alloc().init();
+        pipe = NSPipe.pipe(),
+        errPipe = NSPipe.pipe();
     task.setLaunchPath_(@"/bin/sh");
     task.setArguments_(NSArray.arrayWithObjects_("-c", command, nil));
     task.setStandardOutput_(pipe);
@@ -117,19 +117,13 @@ net.khasegawa = {
     {
       var message = NSString.alloc().initWithData_encoding_(data, NSUTF8StringEncoding);
       NSApplication.sharedApplication().displayDialog_withTitle_(message, "Failed...");
-      message.release();
     }
     else
     {
       data = pipe.fileHandleForReading().readDataToEndOfFile();
       var message = NSString.alloc().initWithData_encoding_(data, NSUTF8StringEncoding);
       NSApplication.sharedApplication().displayDialog_withTitle_(message, "Successful!");
-      message.release();
     }
-
-    pipe.release();
-    errPipe.release();
-    task.release();
   }
 };
 
