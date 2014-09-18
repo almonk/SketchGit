@@ -2,14 +2,11 @@
 
 #import 'library/common.js'
 
-var currentFolder = com.bomberstudios.getFileFolder()
-
-var commitMsg = [doc askForUserInput:'Commit message' initialValue:''];
+var path = net.khasegawa.getCurrentDirectory(),
+    commitMsg = doc.askForUserInput_initialValue_('Commit message', '');
 
 if (commitMsg != null){
-
-  var terminal = SBApplication.application_("Terminal");
-
-  terminal.doScript_in_("cd " + currentFolder + "; cd ../; sleep 2; git commit -m '" + commitMsg + "' -a"+ "; exit",nil);
-
+  var terminal = SBApplication.application_("Terminal"),
+      command = NSString.stringWithFormat("\\cd \"%@\" && \\git commit -m '%@' --interactive; \\exit", path, commitMsg)
+  terminal.doScript_in_(command, nil);
 }
