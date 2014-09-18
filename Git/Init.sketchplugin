@@ -2,6 +2,14 @@
 
 #import 'library/common.js'
 
-var path = net.khasegawa.getCurrentDirectory(),
-    command = NSString.stringWithFormat_("\\cd \"%@\" && \\git init", path);
-net.khasegawa.exec(command);
+try
+{
+  var path = net.khasegawa.getCurrentDirectory(),
+      command = NSString.stringWithFormat_("\\cd \"%@\" && \\git init", path),
+      message = net.khasegawa.exec(command);
+  NSApplication.sharedApplication().displayDialog_withTitle_(message, "Successful!");
+}
+catch(e)
+{
+  NSApplication.sharedApplication().displayDialog_withTitle_(e, "Failed...");
+}

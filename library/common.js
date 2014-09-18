@@ -116,14 +116,10 @@ net.khasegawa = {
     if (data != nil && data.length())
     {
       var message = NSString.alloc().initWithData_encoding_(data, NSUTF8StringEncoding);
-      NSApplication.sharedApplication().displayDialog_withTitle_(message, "Failed...");
+      NSException.raise_format_("failed", message);
     }
-    else
-    {
-      data = pipe.fileHandleForReading().readDataToEndOfFile();
-      var message = NSString.alloc().initWithData_encoding_(data, NSUTF8StringEncoding);
-      NSApplication.sharedApplication().displayDialog_withTitle_(message, "Successful!");
-    }
+    data = pipe.fileHandleForReading().readDataToEndOfFile();
+    return NSString.alloc().initWithData_encoding_(data, NSUTF8StringEncoding);
   }
 };
 

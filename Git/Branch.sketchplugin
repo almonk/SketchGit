@@ -2,11 +2,19 @@
 
 #import 'library/common.js'
 
-var path = net.khasegawa.getCurrentDirectory(),
-    branchName = doc.askForUserInput_initialValue_('Branch name', '');
-
-if (branchName != nil)
+try
 {
-  var command = NSString.stringWithFormat_("\\cd \"%@\" && \\git checkout -qb %@", path, branchName);
-  net.khasegawa.exec(command);
+  var path = net.khasegawa.getCurrentDirectory(),
+      branchName = doc.askForUserInput_initialValue_('Branch name', '');
+
+  if (branchName != nil)
+  {
+    var command = NSString.stringWithFormat_("\\cd \"%@\" && \\git checkout -qb %@", path, branchName);
+    var message = net.khasegawa.exec(command);
+    NSApplication.sharedApplication().displayDialog_withTitle_(message, "Successful!");
+  }
+}
+catch(e)
+{
+  NSApplication.sharedApplication().displayDialog_withTitle_(e, "Failed...");
 }
