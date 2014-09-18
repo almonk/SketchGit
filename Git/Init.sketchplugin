@@ -4,4 +4,4 @@
 
 var path = net.khasegawa.getCurrentDirectory(),
     command = NSString.stringWithFormat_("\\cd \"%@\" && \\git init", path);
-net.khasegawa.executeCommand(command);
+net.khasegawa.exec(command);
