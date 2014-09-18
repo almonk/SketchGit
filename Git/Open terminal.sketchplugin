@@ -2,6 +2,6 @@
 
 #import 'library/common.js'
 
-var path = com.bomberstudios.getCurrentDirectory();
+var path = net.khasegawa.getCurrentDirectory();
 NSWorkspace.sharedWorkspace()
            .openFile_withApplication_(path, @"Terminal");
