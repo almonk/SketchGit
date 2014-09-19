@@ -9,8 +9,8 @@ try
 
   if (branchName != nil)
   {
-    var command = NSString.stringWithFormat_("\\cd \"%@\" && \\git checkout -qb %@", path, branchName);
-    var message = net.khasegawa.exec(command);
+    var command = NSString.stringWithFormat_("\\git checkout -qb %@", branchName),
+        message = net.khasegawa.exec(path, command);
     NSApplication.sharedApplication().displayDialog_withTitle_(message, "Successful!");
   }
 }

@@ -5,8 +5,7 @@
 try
 {
   var path = net.khasegawa.getCurrentDirectory(),
-      command = NSString.stringWithFormat_("\\cd \"%@\" && \\git init", path),
-      message = net.khasegawa.exec(command);
+      message = net.khasegawa.exec(path, "\\git init");
   NSApplication.sharedApplication().displayDialog_withTitle_(message, "Successful!");
 }
 catch(e)

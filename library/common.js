@@ -102,11 +102,12 @@ net.khasegawa = {
   getCurrentDirectory: function() {
     return doc.fileURL().URLByDeletingLastPathComponent().path();
   },
-  exec: function(command) {
+  exec: function(path, command) {
     var task = NSTask.alloc().init(),
         pipe = NSPipe.pipe(),
         errPipe = NSPipe.pipe();
     task.setLaunchPath_(@"/bin/sh");
+    task.setCurrentDirectoryPath(path);
     task.setArguments_(NSArray.arrayWithObjects_("-c", command, nil));
     task.setStandardOutput_(pipe);
     task.setStandardError_(errPipe);

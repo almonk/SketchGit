@@ -5,12 +5,12 @@
 try
 {
   var path = net.khasegawa.getCurrentDirectory(),
-      name = doc.askForUserInput_initialValue_('Checkout branch', '');
+      branchName = doc.askForUserInput_initialValue_('Checkout branch', '');
 
-  if (name != null)
+  if (branchName != null)
   {
-    var command = NSString.stringWithFormat_("\\cd \"%@\" && \\git checkout -q %@", path, name);
-    var message = net.khasegawa.exec(command);
+    var command = NSString.stringWithFormat_("\\git checkout -q %@", branchName),
+        message = net.khasegawa.exec(path, command);
     NSApplication.sharedApplication().displayDialog_withTitle_(message, "Successful!");
   }
 }
