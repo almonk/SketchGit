@@ -10,5 +10,5 @@ try
 }
 catch(e)
 {
-  NSApplication.sharedApplication().displayDialog_withTitle_(e, "Failed...");
+  NSApplication.sharedApplication().displayDialog_withTitle_(e.reason(), "Failed...");
 }
