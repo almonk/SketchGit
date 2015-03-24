@@ -16,7 +16,7 @@ com.bomberstudios = {
     var pages = [doc pages],
         file_url = [doc fileURL],
         file_path = [file_url path],
-        file_folder = file_path
+	  	file_folder = [file_path stringByDeletingLastPathComponent]
     return file_folder;
   },
   getExportPath: function(){
